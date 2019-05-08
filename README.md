@@ -96,16 +96,19 @@ function debounce(fn,wait,immediate){
 	function baseClone(base){
 		return base.valueOf();
 	}
+	
 	//Number
 	var num = new Number(1);
 	var newNum = baseClone(num);
 	console.log(newNum);
 	console.log(newNum === num);
+	
 	//String
-	var str = new String('小王八')
+	var str = new String('蜡笔小新')
 	var newStr = baseClone(str);
 	console.log(newStr);
 	console.log(newStr === str);
+	
 	//Boolean
 	var bol = new Boolean(true);
 	var newBol = baseClone(bol);

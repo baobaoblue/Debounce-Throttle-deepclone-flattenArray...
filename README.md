@@ -215,3 +215,31 @@ function debounce(fn,wait,immediate){
     })
 }
   ```
+  ### 数组扁平化的三种方法
+```
+function flatten(arr){
+    return [].concat(
+      ...arr.map(x => Array.isArray(x)? flatten(x):x)
+    )
+  }
+  
+  function flatten(arr){
+    return arr.reduce(function(prev,item){
+      return prev.concat(Array.isArray(item)?flatten(item):item)
+    },[])
+  }
+  
+  function flatten(arr){
+    let stack = [...arr]
+    let res = []
+    while(stack.length){
+      const next = stack.pop()
+      if(Array.isArray(next)){
+        stack.push(...next)
+      }else{
+        res.push(next)
+      }
+    }
+    return res.reverse()
+  }
+```
